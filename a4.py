@@ -3,15 +3,48 @@
 
 
 class TTTBoard:
-    """A tic tac toe board
+    """A tic tac toe board"""
 
-    Attributes:
-        board - a list of '*'s, 'X's & 'O's. 'X's represent moves by player 'X', 'O's
-            represent moves by player 'O' and '*'s are spots no one has yet played on
-    """
+    def __init__(self):
+        self.__init_board()
 
-    pass
+    def __init_board(self):
+        self.board = ["*"] * 9
 
+    def __str__(self):
+        return "\n".join([
+            " ".join(self.board[0:3]),
+            " ".join(self.board[3:6]),
+            " ".join(self.board[6:9])
+        ])
+
+    def make_move(self, player: str, position: int) -> bool:
+        if player not in ("X", "O"):
+            raise ValueError("Player must be 'X' or 'O'")
+        
+        if position < 0 or position > 8:
+            raise ValueError("Position must be between 0 and 8")
+        
+        if self.board[position] != "*":
+            print("Pick another spot")
+            return False
+        
+        self.board[position] = player
+        return True
+    
+    def has_won(self, player: str) -> bool:
+        wins = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],  
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],  
+            [0, 4, 8], [2, 4, 6],              
+        ]
+        return any(all(self.board[i] == player for i in line) for line in wins)
+
+    def game_over(self) -> bool:
+        return self.has_won("X") or self.has_won("O") or "*" not in self.board
+
+    def clear(self) -> None:
+        self.__init_board()
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
