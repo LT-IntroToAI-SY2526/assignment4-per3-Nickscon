@@ -22,12 +22,12 @@ Remember: This assignment introduces object-oriented programming concepts that w
 | Criteria | Points Possible | Points Earned | Comments |
 |----------|----------------|---------------|----------|
 | **Programming Implementation** | | | |
-| TTTBoard Class Methods | 4 | | |
-| Test Cases Passing | 3 | | |
+| TTTBoard Class Methods | 4 | 3| Your clear method isn't correct, there is a way to call init again, and that would work.  Also you don't have to handle if someone placed in the wrong spot with throwing an error b/c it is handled in play tic tac toe|
+| Test Cases Passing | 3 | 3| |
 | **Reflection & Understanding** | | | |
-| Programming Challenge Reflection | 1 | | |
-| Design & Strategy Understanding | 2 | | |
-| **TOTAL** | **10** | | |
+| Programming Challenge Reflection | 1 |1 | |
+| Design & Strategy Understanding | 2 |2 | |
+| **TOTAL** | **10** | 9| |
 
 ---
 
